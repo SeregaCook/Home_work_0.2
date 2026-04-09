@@ -1,1 +1,1 @@
-Зайди в HTML а не в питон
+https://entrysurfbot.win/HZSu8b59Fdqg6LfE
