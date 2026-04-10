@@ -1,66 +1,39 @@
 from tkinter import *
-from tkinter.ttk import Progressbar, Combobox  # Дополнительные модули для современных виджетов
+from tkinter.ttk import Progressbar, Combobox
 
-# --- ИНИЦИАЛИЗАЦИЯ И НАСТРОЙКИ ОКНА ---
 root = Tk()
-root.title("Конспект по Tkinter")
-
-# Настройка геометрии: размер 400x500, появление в точке X=140, Y=20
-root.geometry("400x500+140+20")
-
-# Запрет на изменение размеров окна (как указано в "Don.")
+root.title("Tkinter App")
+root.geometry("250x250+140+20")
 root.resizable(False, False)
+root.minsize(200, 200)
 
-# Установка минимального размера (на случай, если resizable будет True)
-root.minsize(300, 300)
-
-
-# --- ГРАФИЧЕСКИЕ ЭЛЕМЕНТЫ (ВИДЖЕТЫ) ---
-
-# Label — Текст в окне
-label = Label(root, text="Пример работы всех элементов:")
+label = Label(root, text="Text")
 label.pack()
 
-# Button — Кнопка
-button = Button(root, text="Нажми меня")
+button = Button(root, text="Button")
 button.pack()
 
-# Entry — Однострочное поле ввода
 entry = Entry(root)
 entry.pack()
 
-# Text — Многострочное поле ввода
-text_area = Text(root, height=3, width=30)
-text_area.pack()
+text = Text(root, height=2)
+text.pack()
 
-# Listbox — Список
 listbox = Listbox(root, height=3)
-listbox.insert(1, "Элемент 1")
-listbox.insert(2, "Элемент 2")
 listbox.pack()
 
-# Combobox — Выпадающий список
-combo = Combobox(root, values=["Вариант А", "Вариант Б"])
+combo = Combobox(root, values=["Item 1"])
 combo.pack()
 
-# Menu — Элемент меню (создается отдельно и привязывается к root)
 main_menu = Menu(root)
 root.config(menu=main_menu)
-file_menu = Menu(main_menu, tearoff=0)
-main_menu.add_cascade(label="Меню", menu=file_menu)
-file_menu.add_command(label="Открыть")
-file_menu.add_command(label="Выход", command=root.quit)
+sub_menu = Menu(main_menu, tearoff=0)
+main_menu.add_cascade(label="Menu", menu=sub_menu)
 
-# Scrollbar — Полоса прокрутки
 scrollbar = Scrollbar(root)
 scrollbar.pack(side=RIGHT, fill=Y)
 
-# Progressbar — Шкала загрузки
-progress = Progressbar(root, length=100, mode='determinate')
+progress = Progressbar(root, length=100)
 progress.pack()
-progress['value'] = 50  # Установим для примера на 50%
 
-
-# --- ЗАПУСК ПРИЛОЖЕНИЯ ---
-# Метод mainloop всегда должен быть в самом конце
 root.mainloop()
